@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box
+      sx={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        '& > :not(style)': {
+          m: 1,
+          width: 128,
+          height: 128,
+        },
+      }}
+    >
+      <Paper elevation={0} />
+      <Paper />
+      <Paper elevation={3} />
+    </Box>
   );
 }
 
-export default App;
+//export default App;
