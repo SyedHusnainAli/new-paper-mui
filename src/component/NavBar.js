@@ -3,7 +3,7 @@ import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-
+import  {useEffect, useState}  from 'react';
 import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 
@@ -52,6 +52,18 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function SearchAppBar() {
+const [globalData, setGlobalData] = useState({})
+useEffect(()=>{
+  async function getD(){
+   const response = await fetch('https://covid19.mathdro.id/api');
+   let data = await response.json()
+   setGlobalData(data)
+   console.log(data);
+  
+  }
+  getD()
+},[])
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
